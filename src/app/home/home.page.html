@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar [color]="isRecording ? 'danger' : 'primary'">
+    <ion-title>
+      ONE FOR ALL 
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+      <ion-item>
+          <ion-label>Выберите язык</ion-label>
+          <ion-select placeholder="Выберите язык" (ionChange)="set_Language($event)">
+              <ion-select-option value="US">English</ion-select-option>
+              <ion-select-option value="RU">Русский</ion-select-option>
+              <ion-select-option value="UA">Український</ion-select-option>
+          </ion-select>
+      </ion-item>
+      <button style="width:100%;height:50px;padding:15px;margin-bottom:10px;background-color:#3880ff;color:white;font-size: 22px;" (click)="startListening()"> START </button>
+      <button style="width:100%;height:50px;padding:15px;margin-top:10px;background-color:#3880ff;color:white;font-size: 22px;"  (click)="stopListening()"> STOP </button>
+   <div>
+       {{this.output}}
+   </div>
+   <ion-list>
+   <ion-item *ngFor = "let match of matches">
+       {{ match }}
+    </ion-item>
+   </ion-list>
+     <ion-button [routerLink]="['/main']" style="margin-left: 30%;"> HOME PAGE </ion-button>
+  </div>
+</ion-content>
